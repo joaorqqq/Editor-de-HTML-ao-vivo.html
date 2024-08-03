@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live HTML Editor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        textarea {
+            width: 80%;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+        button {
+            margin-bottom: 20px;
+        }
+        iframe {
+            width: 100%;
+            flex-grow: 1;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Live HTML Editor</h1>
+    <textarea id="htmlInput" placeholder="Digite seu script HTML aqui..."></textarea>
+    <button onclick="updateIframe()">Renderizar</button>
+    <iframe id="output"></iframe>
+
+    <script>
+        function updateIframe() {
+            const htmlInput = document.getElementById('htmlInput').value;
+            const iframe = document.getElementById('output');
+            iframe.srcdoc = htmlInput;
+        }
+    </script>
+</body>
+</html>
